@@ -5,7 +5,7 @@ public class BST<Vertex> {       //BinarySearchTree
     private Node root;
 
     public BST(){
-        map = new HashMap<Vertex, List <Vertex> >()
+        map = new HashMap<Vertex, List <Vertex> >();
     }
     private class Node{
 
@@ -25,7 +25,9 @@ public class BST<Vertex> {       //BinarySearchTree
         map.get(key).add(val);
         map.get(val).add(key);
     } ;
-    public <Vertex> get(Vertex key){};
+    public List <Vertex> getNeighbor(Vertex vertex, List <Vertex> val){
+        return map.getOrDefault(vertex, val);
+    };
     public void delete(Vertex key){};
     public Iterable<Vertex> iterator(){}
 
