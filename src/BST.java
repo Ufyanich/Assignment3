@@ -2,11 +2,11 @@ import java.util.*;
 
 public class BST<Vertex> {       //BinarySearchTree
     private Map <Vertex, List <Vertex> > map;
-
-
     private Node root;
 
-    private Map<>
+    public BST(){
+        map = new HashMap<Vertex, List <Vertex> >()
+    }
     private class Node{
 
         private Vertex key;
@@ -19,10 +19,13 @@ public class BST<Vertex> {       //BinarySearchTree
         }
     }
 
-    public void put(Vertex key, List <Vertex> val) {
+    public void put(Vertex key, Vertex val, Vertex vertex) {
+        map.put(vertex, new LinkedList<Vertex>());
 
+        map.get(key).add(val);
+        map.get(val).add(key);
     } ;
-    public List <Vertex> get(Vertex key){};
+    public <Vertex> get(Vertex key){};
     public void delete(Vertex key){};
     public Iterable<Vertex> iterator(){}
 
