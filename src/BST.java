@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class BST<Vertex> {       //BinarySearchTree
-    private Map <Vertex, List <Vertex> > map;
+    private Map <Vertex, List <Vertex> > map;;
     private Node root;
 
     public BST(){
@@ -24,15 +24,21 @@ public class BST<Vertex> {       //BinarySearchTree
         return neighbors != null && neighbors.contains(val);
     }
 
-    public void put(Vertex key, Vertex val, Vertex vertex) {
+
+
+    public void put(Vertex vertex) {
         map.put(vertex, new LinkedList<Vertex>());
 
-        //Addition of Edges
-        map.get(key).add(val);
-        map.get(val).add(key);
-    } ;
+    }
+
+
+    public boolean containVertex(Vertex vertex){  //Here
+
+        return map.keySet(vertex);
+    }
     public List <Vertex> getNeighbor(Vertex vertex, List <Vertex> val){
         return map.getOrDefault(vertex, val);
+
     };
     public void deleteEdge(Vertex key, Vertex val){
         if(!hasEdge(key, val)) {
@@ -42,9 +48,9 @@ public class BST<Vertex> {       //BinarySearchTree
         map.get(key).remove(val);
         map.get(val).remove(key);
     }
-    public Iterable<Vertex> iterator(Vertex ){
-
-    }
+//    public Iterable<Vertex> iterator(Vertex node){
+//        printInorder(node.left)
+//    }
 
     public void printBST(){
         for(Map.Entry<Vertex, List<Vertex>> entry : map.entrySet()){
