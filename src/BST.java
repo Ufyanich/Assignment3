@@ -1,20 +1,29 @@
-public class BST<K extends Comparable<K>, V> {
+import java.util.*;
+
+public class BST<Vertex> {       //BinarySearchTree
+    private Map <Vertex, List <Vertex> > map;
+
+
     private Node root;
+
+    private Map<>
     private class Node{
 
-        private K key;
-        private V val;
+        private Vertex key;
+        private List <Vertex> val;
         private Node left, right;
 
-        public Node(K key, V val){
+        public Node(Vertex key, List <Vertex> val){
             this.key = key;
             this.val = val;
         }
     }
 
-// void put(K key, V val) {} ;
-//    public V get(K key){};
-//    public void delete(K key){};
-//    public Iterable<K> iterator(){}
+    public void put(Vertex key, List <Vertex> val) {
+
+    } ;
+    public List <Vertex> get(Vertex key){};
+    public void delete(Vertex key){};
+    public Iterable<Vertex> iterator(){}
 
 }
