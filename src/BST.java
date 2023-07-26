@@ -34,12 +34,28 @@ public class BST<Vertex> {       //BinarySearchTree
     public List <Vertex> getNeighbor(Vertex vertex, List <Vertex> val){
         return map.getOrDefault(vertex, val);
     };
-    public void delete(Vertex key, Vertex val){
+    public void deleteEdge(Vertex key, Vertex val){
         if(!hasEdge(key, val)) {
-            System.out.println("These two vertices do not have an edge");
+            System.out.println("No edge between");
             return;
         }
-    };
-    public Iterable<Vertex> iterator(){}
+        map.get(key).remove(val);
+        map.get(val).remove(key);
+    }
+    public Iterable<Vertex> iterator(Vertex ){
+
+    }
+
+    public void printBST(){
+        for(Map.Entry<Vertex, List<Vertex>> entry : map.entrySet()){
+            Vertex vertex = entry.getKey();
+            System.out.print("Vertex " + vertex +" connected with ");
+            List<Vertex> neighbors = entry.getValue();
+            for (Vertex neighbor : neighbors){
+                System.out.print(neighbor + " ");
+            }
+            System.out.println();
+        }
+    }
 
 }
