@@ -19,17 +19,27 @@ public class BST<Vertex> {       //BinarySearchTree
         }
     }
 
+    public boolean hasEdge(Vertex key, Vertex val){
+        List<Vertex> neighbors = map.get(key);
+        return neighbors != null && neighbors.contains(val);
+    }
+
     public void put(Vertex key, Vertex val, Vertex vertex) {
         map.put(vertex, new LinkedList<Vertex>());
 
-        //Adition of Edges
+        //Addition of Edges
         map.get(key).add(val);
         map.get(val).add(key);
     } ;
     public List <Vertex> getNeighbor(Vertex vertex, List <Vertex> val){
         return map.getOrDefault(vertex, val);
     };
-    public void delete(Vertex key){};
+    public void delete(Vertex key, Vertex val){
+        if(!hasEdge(key, val)) {
+            System.out.println("These two vertices do not have an edge");
+            return;
+        }
+    };
     public Iterable<Vertex> iterator(){}
 
 }
