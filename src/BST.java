@@ -22,6 +22,7 @@ public class BST<Vertex> {       //BinarySearchTree
     public void put(Vertex key, Vertex val, Vertex vertex) {
         map.put(vertex, new LinkedList<Vertex>());
 
+        //Adition of Edges
         map.get(key).add(val);
         map.get(val).add(key);
     } ;
